@@ -6,7 +6,7 @@ ENCODER_ENABLE = yes
 LTO_ENABLE = yes
 OLED_ENABLE = yes
 
-CONVERT_TO=promicro_rp2040
+CONVERT_TO=rp2040_ce
 
 VIA_ENABLE = yes
 VIAL_ENABLE = yes
