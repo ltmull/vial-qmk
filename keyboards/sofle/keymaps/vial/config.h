@@ -16,32 +16,60 @@
   #pragma once
 
 
-//#define USE_MATRIX_I2C
 
 /* Select hand configuration */
 
 ///https://thomasbaart.nl/2018/12/01/reducing-firmware-size-in-qmk/
 
+
+/******************************************************************************
+ *
+ *  QMK Settings definitions
+ *
+ ******************************************************************************
+ */
 #define CUSTOM_FONT
-
 #define CUSTOM_LAYER_READ //if you remove this it causes issues - needs better guarding
-
 
 #define QUICK_TAP_TERM 0
 #ifdef TAPPING_TERM
     #undef TAPPING_TERM
-    #define TAPPING_TERM 200
+    #define TAPPING_TERM 170
 #endif
+#define PERMISSIVE_HOLD
 #define ENCODER_DIRECTION_FLIP
 
-
-#define RGBLIGHT_SLEEP
-//
-#define RGBLIGHT_LAYERS
-
+/******************************************************************************
+ *
+ *  Hardware/Driver definitions
+ *
+ ******************************************************************************
+ */
 /* ws2812 RGB LED */
 #define WS2812_DI_PIN D3
+//#define USE_MATRIX_I2C
 
+/******************************************************************************
+ *
+ *  Vial definitions
+ *
+ ******************************************************************************
+ */
+#define VIAL_KEYBOARD_UID {0x90, 0x16, 0x3D, 0x7C, 0xC2, 0xA9, 0x5D, 0x41}
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+
+// #define VIAL_UNLOCK_COMBO_ROWS { 2, 7 }
+// #define VIAL_UNLOCK_COMBO_COLS { 3, 2 }
+
+/******************************************************************************
+ *
+ *  QMK Lighting definitions
+ *
+ ******************************************************************************
+ */
+#define RGBLIGHT_SLEEP
+#define RGBLIGHT_LAYERS
 
 #ifdef RGB_MATRIX_ENABLE
 #define RGBLIGHT_LED_COUNT 35    // Number of LEDs
@@ -122,9 +150,3 @@
  // #   undef ENABLE_RGB_MATRIX_SOLID_SPLASH
  // #   undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 #endif
-
-// Vial definitions
-#define VIAL_KEYBOARD_UID {0x90, 0x16, 0x3D, 0x7C, 0xC2, 0xA9, 0x5D, 0x41}
-
-// #define VIAL_UNLOCK_COMBO_ROWS { 2, 7 }
-// #define VIAL_UNLOCK_COMBO_COLS { 3, 2 }

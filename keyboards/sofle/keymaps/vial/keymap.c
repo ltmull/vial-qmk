@@ -77,7 +77,7 @@ enum sofle_layers {
     _RAISE,
     _ADJUST,
     _NUMPAD,
-    _SWITCH
+    // _SWITCH
 };
 
 enum custom_keycodes {
@@ -272,20 +272,20 @@ LT(_NUMPAD,KC_TAB),KC_Q,KC_W, KC_F,    KC_P,    KC_B,                      KC_J,
  *            `----------------------------------'           '------''---------------------------'
  */
   // layer switcher
-[_SWITCH] = LAYOUT(
-  //,------------------------------------------------.                    ,---------------------------------------------------.
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX,
-  //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  TO(0),   TO(1),   TO(2),   TO(3),   TO(4),   TO(5),                      TO(6),   KC_NO,   KC_NO,   KC_NO,   KC_NO,   QK_BOOT,
-  //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_NO,   KC_NO, KC_BRIU,   KC_NO,   KC_NO,   KC_NO,                      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   EE_CLR,
-  //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_SYSTEM_SLEEP,KC_NO,KC_NO,KC_NO,  KC_NO,   KC_NO, KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-  //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                  KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
-  //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
+// [_SWITCH] = LAYOUT(
+//   //,------------------------------------------------.                    ,---------------------------------------------------.
+//   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX,
+//   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
+//   TO(0),   TO(1),   TO(2),   TO(3),   TO(4),   TO(5),                      TO(6),   KC_NO,   KC_NO,   KC_NO,   KC_NO,   QK_BOOT,
+//   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
+//   KC_NO,   KC_NO, KC_BRIU,   KC_NO,   KC_NO,   KC_NO,                      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   EE_CLR,
+//   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
+//   KC_SYSTEM_SLEEP,KC_NO,KC_NO,KC_NO,  KC_NO,   KC_NO, KC_NO,      KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+//   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
+//                   KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
+//   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 
-	),
+// 	),
 };
 
 #ifdef RGBLIGHT_ENABLE
@@ -391,14 +391,14 @@ static void print_status_narrow(void) {
 
 
     switch (get_highest_layer(default_layer_state)) {
-        case _QWERTY:
-            oled_write_ln_P(PSTR("Qwrt"), false);
-            break;
-        case _COLEMAK:
-            oled_write_ln_P(PSTR("Clmk"), false);
-            break;
+        // case _COLEMAK:
+        //     oled_write_ln_P(PSTR("Clmk"), false);
+        //     break;
         case _COLEMAKDH:
             oled_write_ln_P(PSTR("CmkDH"), false);
+            break;
+        case _QWERTY:
+            oled_write_ln_P(PSTR("Qwrt"), false);
             break;
 
         default:
@@ -408,9 +408,8 @@ static void print_status_narrow(void) {
     // Print current layer
     oled_write_ln_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
-        case _COLEMAK:
-        case _QWERTY:
         case _COLEMAKDH:
+        case _QWERTY:
             oled_write_P(PSTR("Base\n"), false);
             break;
         case _RAISE:
@@ -426,7 +425,7 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("Nump\n"), false);
             break;
         case _SWITCH:
-            oled_write_P(PSTR("Swit\n"), false);
+            oled_write_P(PSTR("Swtch\n"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
