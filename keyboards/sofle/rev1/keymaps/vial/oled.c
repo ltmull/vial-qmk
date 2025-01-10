@@ -34,33 +34,33 @@ static void render_logo(void) {
 
 static void print_status_narrow(void) {
     // Print current mode
-    oled_write_P(PSTR("\n\n"), false);
+    oled_write_P(PSTR("SOFLE"), false);
+    oled_write_P(PSTR("-----\n"), false);
 
     switch (get_highest_layer(layer_state)) {
         case _COLEMAK_DH:
             oled_write_ln_P(PSTR("CmkDH"), false);
             break;
         case _QWERTY:
-            oled_write_ln_P(PSTR("Qwrt"), false);
+            oled_write_ln_P(PSTR("Qwert"), false);
             break;
         default:
-            oled_write_P(PSTR("Mod\n"), false);
+            oled_write_ln_P(PSTR(" Mod "), false);
             break;
     }
-    oled_write_P(PSTR("\n\n"), false);
 
     // Print current layer
-    oled_write_ln_P(PSTR("LAYER"), false);
+    oled_write_ln_P(PSTR("\nLAYER"), false);
     switch (get_highest_layer(layer_state)) {
         case _COLEMAK_DH:
         case _QWERTY:
-            oled_write_P(PSTR("Base\n"), false);
+            oled_write_ln_P(PSTR("Base "), false);
             break;
         case _LOWER:
-            oled_write_P(PSTR("Lower"), false);
+            oled_write_ln_P(PSTR("Lower"), false);
             break;
         case _RAISE:
-            oled_write_P(PSTR("Raise"), false);
+            oled_write_ln_P(PSTR("Raise"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
