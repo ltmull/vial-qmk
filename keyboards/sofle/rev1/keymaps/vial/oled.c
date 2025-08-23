@@ -56,11 +56,14 @@ static void print_status_narrow(void) {
         case _QWERTY:
             oled_write_P(PSTR("Base\n"), false);
             break;
-        case _LOWER:
-            oled_write_P(PSTR("Lower"), false);
+        case _SYMBOL:
+            oled_write_P(PSTR(" Sym "), false);
             break;
-        case _RAISE:
-            oled_write_P(PSTR("Raise"), false);
+        case _NAV:
+            oled_write_P(PSTR(" Nav"), false);
+            break;
+        case _NUMBER:
+            oled_write_P(PSTR(" Num "), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
