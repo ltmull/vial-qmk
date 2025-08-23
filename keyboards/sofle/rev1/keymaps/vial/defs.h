@@ -11,7 +11,8 @@ enum SOFLE_LAYERS
   _DEFAULT = 0,
   _COLEMAK_DH = 0,
   _QWERTY,
-  _LOWER,
-  _RAISE,
+  _SYMBOL,
   _NAV,
-}
+  _NUMBER,
+  _EXTRA,
+};

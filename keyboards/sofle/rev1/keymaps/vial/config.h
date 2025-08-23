@@ -29,3 +29,6 @@
 
 // Number of configurable layers
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
+
+// Flow Tap
+#define FLOW_TAP_TERM 150
