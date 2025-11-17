@@ -31,4 +31,6 @@
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 // Flow Tap
-#define FLOW_TAP_TERM 150
+#define FLOW_TAP_TERM 175
+
+#define CHORDAL_HOLD

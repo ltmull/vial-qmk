@@ -123,3 +123,19 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_SYMBOL] =      { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
     [_NAV] =      { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
 };
+
+char chordal_hold_handedness(keypos_t key) {
+  if (key.col == 0 || key.col == MATRIX_COLS - 1) {
+    return '*';  // Exempt the outer columns.
+  }
+
+  return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
+}
+
+// const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
+//   'L',  'L',  'L',  'L',  'L',  'L',             'R',  'R',  'R',  'R',  'R',  'R',
+//   'L',  'L',  'L',  'L',  'L',  'L',             'R',  'R',  'R',  'R',  'R',  'R',
+//   'L',  'L',  'L',  'L',  'L',  'L',             'R',  'R',  'R',  'R',  'R',  'R',
+//   'L',  'L',  'L',  'L',  'L',  'L', 'L',   'R', 'R',  'R',  'R',  'R',  'R',  'R',
+//         'L', 'L', 'L', 'L',  'L',               'R',  'R', 'R', 'R', 'R'
+// );
