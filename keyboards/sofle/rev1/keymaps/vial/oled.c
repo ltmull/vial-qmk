@@ -44,7 +44,7 @@ static void print_status_narrow(void) {
             oled_write_ln_P(PSTR("Qwrt"), false);
             break;
         default:
-            oled_write_P(PSTR("Mod\n"), false);
+            oled_write_ln_P(PSTR(" Mod "), false);
             break;
     }
     oled_write_P(PSTR("\n\n"), false);
@@ -54,10 +54,10 @@ static void print_status_narrow(void) {
     switch (get_highest_layer(layer_state)) {
         case _COLEMAK_DH:
         case _QWERTY:
-            oled_write_P(PSTR("Base\n"), false);
+            oled_write_P(PSTR(" Base"), false);
             break;
         case _SYMBOL:
-            oled_write_P(PSTR(" Sym "), false);
+            oled_write_P(PSTR(" Sym"), false);
             break;
         case _NAV:
             oled_write_P(PSTR(" Nav"), false);
